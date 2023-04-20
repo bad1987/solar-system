@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,54 +43,13 @@
       box-shadow: 0px 0px 10px 2px #ccc;
     }
 
-    .earth {
-      background-color: #1e90ff;
-      transform-origin: 50% 150%;
-      animation: earth-orbit 6s linear infinite;
-      transform: translate(-150px, 0);
-    }
-
-    .mars {
-      background-color: #ff6347;
-      transform-origin: 50% 200%;
-      animation: mars-orbit 12s linear infinite;
-      transform: translate(-200px, 0);
-    }
-
-    .jupiter {
-      background-color: #ff9900;
-      transform-origin: 50% 250%;
-      animation: jupiter-orbit 18s linear infinite;
-      transform: translate(-250px, 0);
-    }
-
-    .saturn {
-      background-color: #ffcc99;
-      transform-origin: 50% 300%;
-      animation: saturn-orbit 24s linear infinite;
-      transform: translate(-300px, 0);
-    }
-
-    .uranus {
-      background-color: #66ccff;
-      transform-origin: 50% 350%;
-      animation: uranus-orbit 30s linear infinite;
-      transform: translate(-350px, 0);
-    }
-
-    .neptune {
-      background-color: #000080;
-      transform-origin: 50% 400%;
-      animation: neptune-orbit 36s linear infinite;
-      transform: translate(-400px, 0);
-    }
-
     @keyframes earth-orbit {
       from {
-        transform: rotate(0deg) translate(-150px, 0) rotate(0deg);
+        transform: rotate(0deg) translate(-120px, 0) rotate(0deg);
       }
+
       to {
-        transform: rotate(360deg) translate(-150px, 0) rotate(-360deg);
+        transform: rotate(360deg) translate(-120px, 0) rotate(-360deg);
       }
     }
 
@@ -97,48 +57,142 @@
       from {
         transform: rotate(0deg) translate(-200px, 0) rotate(0deg);
       }
+
       to {
         transform: rotate(360deg) translate(-200px, 0) rotate(-360deg);
       }
+
+      animation-duration: 120s;
+      transform: translate(-200px, 0);
     }
 
     @keyframes jupiter-orbit {
       from {
-        transform: rotate(0deg) translate(-250px, 0) rotate(0deg);
+        transform: rotate(0deg) translate(-300px, 0) rotate(0deg);
       }
+
       to {
-        transform: rotate(360deg) translate(-250px, 0) rotate(-360deg);
+        transform: rotate(360deg) translate(-300px, 0) rotate(-360deg);
       }
+
+      animation-duration: 180s;
+      transform: translate(-300px, 0);
     }
 
     @keyframes saturn-orbit {
       from {
-        transform: rotate(0deg) translate(-300px, 0) rotate(0deg);
+        transform: rotate(0deg) translate(-400px, 0) rotate(0deg);
       }
+
       to {
-        transform: rotate(360deg) translate(-300px, 0) rotate(-360deg);
+        transform: rotate(360deg) translate(-400px, 0) rotate(-360deg);
       }
+
+      animation-duration: 240s;
+      transform: translate(-400px, 0);
     }
 
     @keyframes uranus-orbit {
       from {
-        transform: rotate(0deg) translate(-350px, 0) rotate(0deg);
+        transform: rotate(0deg) translate(-500px, 0) rotate(0deg);
       }
+
       to {
-        transform: rotate(360deg) translate(-350px, 0) rotate(-360deg);
+        transform: rotate(360deg) translate(-500px, 0) rotate(-360deg);
       }
+
+      animation-duration: 300s;
+      transform: translate(-500px, -25px);
+      /* adjusted position to keep within viewport */
     }
 
     @keyframes neptune-orbit {
       from {
-        transform: rotate(0deg) translate(-400px, 0) rotate(0deg);
+        transform: rotate(0deg) translate(-600px, 0) rotate(0deg);
       }
+
       to {
-        transform: rotate(360deg) translate(-400px, 0) rotate(-360deg);
+        transform: rotate(360deg) translate(-600px, 0) rotate(-360deg);
       }
+
+      animation-duration: 360s;
+      transform: translate(-600px, 25px);
+      /* adjusted position to keep within viewport */
+    }
+
+    .earth {
+      background-color: #1e90ff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      transform-origin: 50% 150%;
+      animation: earth-orbit 60s linear infinite;
+      transform: translate(-120px, 0);
+    }
+
+    .mars {
+      background-color: #ff6347;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      transform-origin: 50% 200%;
+      animation: mars-orbit 120s linear infinite;
+      transform: translate(-200px, 0);
+    }
+
+    .jupiter {
+      background-color: #ff9900;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transform-origin: 50% 250%;
+      animation: jupiter-orbit 180s linear infinite;
+      transform: translate(-300px, 0);
+    }
+
+    .saturn {
+      background-color: #ffcc99;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transform-origin: 50% 300%;
+      animation: saturn-orbit 240s linear infinite;
+      transform: translate(-400px, 0);
+    }
+
+    .uranus {
+      background-color: #66ccff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      transform-origin: 50% 350%;
+      animation: uranus-orbit 300s linear infinite;
+      transform: translate(-500px, -25px);
+    }
+
+    .neptune {
+      background-color: #000080;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      transform-origin: 50% 400%;
+      animation: neptune-orbit 360s linear infinite;
+      transform: translate(-600px, 25px);
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      position: fixed;
+      overflow: hidden;
     }
   </style>
 </head>
+
 <body>
   <div class="solar-system">
     <div class="sun"></div>
@@ -150,4 +204,5 @@
     <div class="planet neptune"></div>
   </div>
 </body>
+
 </html>
