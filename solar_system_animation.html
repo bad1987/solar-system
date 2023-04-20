@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Solar System</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .solar-system {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ffd700;
+      box-shadow: 0px 0px 50px 10px #ffd700;
+    }
+
+    .planet {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 2px #ccc;
+    }
+
+    .earth {
+      background-color: #1e90ff;
+      transform-origin: 50% 150%;
+      animation: earth-orbit 6s linear infinite;
+      transform: translate(-150px, 0);
+    }
+
+    .mars {
+      background-color: #ff6347;
+      transform-origin: 50% 200%;
+      animation: mars-orbit 12s linear infinite;
+      transform: translate(-200px, 0);
+    }
+
+    .jupiter {
+      background-color: #ff9900;
+      transform-origin: 50% 250%;
+      animation: jupiter-orbit 18s linear infinite;
+      transform: translate(-250px, 0);
+    }
+
+    .saturn {
+      background-color: #ffcc99;
+      transform-origin: 50% 300%;
+      animation: saturn-orbit 24s linear infinite;
+      transform: translate(-300px, 0);
+    }
+
+    .uranus {
+      background-color: #66ccff;
+      transform-origin: 50% 350%;
+      animation: uranus-orbit 30s linear infinite;
+      transform: translate(-350px, 0);
+    }
+
+    .neptune {
+      background-color: #000080;
+      transform-origin: 50% 400%;
+      animation: neptune-orbit 36s linear infinite;
+      transform: translate(-400px, 0);
+    }
+
+    @keyframes earth-orbit {
+      from {
+        transform: rotate(0deg) translate(-150px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-150px, 0) rotate(-360deg);
+      }
+    }
+
+    @keyframes mars-orbit {
+      from {
+        transform: rotate(0deg) translate(-200px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-200px, 0) rotate(-360deg);
+      }
+    }
+
+    @keyframes jupiter-orbit {
+      from {
+        transform: rotate(0deg) translate(-250px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-250px, 0) rotate(-360deg);
+      }
+    }
+
+    @keyframes saturn-orbit {
+      from {
+        transform: rotate(0deg) translate(-300px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-300px, 0) rotate(-360deg);
+      }
+    }
+
+    @keyframes uranus-orbit {
+      from {
+        transform: rotate(0deg) translate(-350px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-350px, 0) rotate(-360deg);
+      }
+    }
+
+    @keyframes neptune-orbit {
+      from {
+        transform: rotate(0deg) translate(-400px, 0) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translate(-400px, 0) rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="solar-system">
+    <div class="sun"></div>
+    <div class="planet earth"></div>
+    <div class="planet mars"></div>
+    <div class="planet jupiter"></div>
+    <div class="planet saturn"></div>
+    <div class="planet uranus"></div>
+    <div class="planet neptune"></div>
+  </div>
+</body>
+</html>

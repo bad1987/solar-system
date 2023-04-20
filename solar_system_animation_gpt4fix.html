@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Solar System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+      body {
+        background-color: #000;
+      }
+
+      .solar-system {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sun {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #ffd700;
+        box-shadow: 0px 0px 50px 10px #ffd700;
+      }
+
+      .planet {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .earth {
+        background-color: #1e90ff;
+        transform-origin: 50% 150%;
+        animation: earth-orbit 6s linear infinite;
+      }
+
+      .mars {
+        background-color: #ff6347;
+        transform-origin: 50% 200%;
+        animation: mars-orbit 12s linear infinite;
+      }
+
+      @keyframes earth-orbit {
+        from {
+          transform: rotate(0deg) translateX(80px) rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg) translateX(80px) rotate(-360deg);
+        }
+      }
+
+      @keyframes mars-orbit {
+        from {
+          transform: rotate(0deg) translateX(120px) rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+      }
+
+      @keyframes planet-rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="solar-system">
+      <div class="sun"></div>
+      <div class="planet earth"></div>
+      <div class="planet mars"></div>
+    </div>
+  </body>
+  <script>
+    gsap.to(".earth", {
+      duration: 2,
+      rotate: 360,
+      ease: "linear",
+      repeat: -1,
+      transformOrigin: "50% 50%",
+    });
+
+    gsap.to(".mars", {
+      duration: 4,
+      rotate: 360,
+      ease: "linear",
+      repeat: -1,
+      transformOrigin: "50% 50%",
+    });
+  </script>
+</html>
