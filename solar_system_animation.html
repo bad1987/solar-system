@@ -13,15 +13,20 @@
 
 <body>
   <div class="solar-system" role="application" aria-label="Animated Solar System">
-    <div class="sun" role="img" aria-label="Sun"></div>
-    <div class="planet earth" role="img" aria-label="Earth"></div>
-    <div class="planet mars" role="img" aria-label="Mars"></div>
-    <div class="planet jupiter" role="img" aria-label="Jupiter"></div>
-    <div class="planet saturn" role="img" aria-label="Saturn"></div>
-    <div class="planet uranus" role="img" aria-label="Uranus"></div>
-    <div class="planet neptune" role="img" aria-label="Neptune"></div>
-    <div class="moon" role="img" aria-label="Moon"></div>
+    <div class="sun" role="img" aria-label="Sun" data-name="The Sun" data-mass="1.989 x 10^30 kg" data-radius="696,340 km"></div>
+    <div class="mercury" data-name="Mercury" data-mass="0.055 Earth masses" data-radius="1,516 miles"></div>
+    <div class="venus" data-name="Venus" data-mass="0.815 Earth masses" data-radius="3,760 miles"></div>
+    <div class="earth" data-name="Earth" data-mass="1 Earth mass" data-radius="3,959 miles"></div>
+    <div class="mars" data-name="Mars" data-mass="0.107 Earth masses" data-radius="2,106 miles"></div>
   </div>
+
+  <div class="popup">
+    <h2 class="popup-title"></h2>
+    <p class="popup-mass"></p>
+    <p class="popup-radius"></p>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 
 
