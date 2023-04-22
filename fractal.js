@@ -1,39 +1,31 @@
-const nebula = document.getElementById("nebula");
-const layer1 = document.getElementById("nebula-layer-1");
-const layer2 = document.getElementById("nebula-layer-2");
+const stars = document.querySelectorAll(".stars");
+const galaxy = document.querySelector(".galaxy");
 
-function createLayer(layerElement, layerImage, direction) {
-    const imageElement = document.createElement("img");
-    imageElement.src = layerImage;
-    layerElement.appendChild(imageElement);
+gsap.to(stars, {
+    duration: 30,
+    x: "random(-200, 200)",
+    y: "random(-200, 200)",
+    scale: "random(0.5, 1.5)",
+    opacity: "random(0.2, 0.8)",
+    ease: "none",
+    stagger: 0.1,
+    repeat: -1,
+});
 
-    const duration = gsap.utils.random(50, 100);
-    const rotation = gsap.utils.random(360);
+gsap.fromTo(
+    "#space", { backgroundColor: "#000" }, {
+        duration: 60,
+        backgroundColor: "#000",
+        ease: "none",
+        repeat: -1,
+        yoyo: true,
+    }
+);
 
-    layerElement.style.animation = `rotate-${direction} ${duration}s linear infinite`;
-    imageElement.style.animation = `spin ${duration}s linear infinite reverse`;
-
-    const keyframes = `
-      @keyframes rotate-${direction} {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(${rotation * direction}deg); }
-      }
-  
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(-360deg); }
-      }
-    `;
-
-    const styleElement = document.createElement("style");
-    styleElement.innerHTML = keyframes;
-    document.head.appendChild(styleElement);
-
-    layerElement.addEventListener("animationiteration", () => {
-        layerElement.removeChild(imageElement);
-        createLayer(layerElement, layerImage, direction * -1);
-    });
-}
-
-createLayer(layer1, "nebula.jpg", 1);
-createLayer(layer2, "nebula4.png", -1);
+gsap.to(galaxy, {
+    duration: 20,
+    scale: 1,
+    ease: "power4.out",
+    repeat: -1,
+    yoyo: true,
+});
