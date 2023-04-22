@@ -1,33 +1,39 @@
-const stars = document.getElementById("stars");
+const nebula = document.getElementById("nebula");
+const layer1 = document.getElementById("nebula-layer-1");
+const layer2 = document.getElementById("nebula-layer-2");
 
-function createStar() {
-    const starSize = gsap.utils.random(1, 5);
-    const starDuration = gsap.utils.random(5, 20);
-    const starDelay = gsap.utils.random(0, 10);
+function createLayer(layerElement, layerImage, direction) {
+    const imageElement = document.createElement("img");
+    imageElement.src = layerImage;
+    layerElement.appendChild(imageElement);
 
-    const starElement = document.createElement("div");
-    starElement.classList.add("star");
-    starElement.style.width = `${starSize}px`;
-    starElement.style.height = `${starSize}px`;
-    starElement.style.backgroundColor = "#fff";
-    starElement.style.top = `${gsap.utils.random(0, 100)}%`;
-    starElement.style.left = `${gsap.utils.random(0, 100)}%`;
-    stars.appendChild(starElement);
+    const duration = gsap.utils.random(50, 100);
+    const rotation = gsap.utils.random(360);
 
-    gsap.to(starElement, {
-        duration: starDuration,
-        opacity: 1,
-        repeat: -1,
-        yoyo: true,
-        delay: starDelay,
-        ease: "linear",
+    layerElement.style.animation = `rotate-${direction} ${duration}s linear infinite`;
+    imageElement.style.animation = `spin ${duration}s linear infinite reverse`;
+
+    const keyframes = `
+      @keyframes rotate-${direction} {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(${rotation * direction}deg); }
+      }
+  
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-360deg); }
+      }
+    `;
+
+    const styleElement = document.createElement("style");
+    styleElement.innerHTML = keyframes;
+    document.head.appendChild(styleElement);
+
+    layerElement.addEventListener("animationiteration", () => {
+        layerElement.removeChild(imageElement);
+        createLayer(layerElement, layerImage, direction * -1);
     });
 }
 
-function createStars(count) {
-    for (let i = 0; i < count; i++) {
-        createStar();
-    }
-}
-
-createStars(100);
+createLayer(layer1, "nebula.jpg", 1);
+createLayer(layer2, "nebula4.png", -1);
